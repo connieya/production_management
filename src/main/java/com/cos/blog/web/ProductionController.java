@@ -41,4 +41,10 @@ public class ProductionController {
 		
 		return productionService.데이터가져오기(month);
 	}
+	
+	@GetMapping("/target/{value}")
+	public List<Production> target(@PathVariable int value){
+		
+		return productionService.입력한목표치리스트(value);
+	}
 }

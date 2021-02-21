@@ -27,8 +27,14 @@ public class ProductionService {
 	@Transactional
 	public List<Production> 데이터가져오기(String month) {
 		
-		return productionRepository.searchByProductionLike(month);
-		//return productionRepository.findByProductionDateContaining(month);
+		return productionRepository.searchByProductiondateLike(month);
+//		return productionRepository.findByProductionDateContaining(month);
 		
+	}
+	
+	@Transactional
+	public List<Production> 입력한목표치리스트(int target){
+		
+		return productionRepository.findByTarget(target);
 	}
 }
