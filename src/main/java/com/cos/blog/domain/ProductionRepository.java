@@ -18,4 +18,7 @@ public interface ProductionRepository extends JpaRepository<Production, Integer>
 	
 	@Query(value = "select * from product where target = ?1" ,nativeQuery = true)
 	List<Production> findByTarget(int target);
+	
+	@Query(value = "select * from product where date =?1", nativeQuery = true)
+	Production findByDate(String date);
 }

@@ -37,4 +37,27 @@ public class ProductionService {
 		
 		return productionRepository.findByTarget(target);
 	}
+	
+	@Transactional
+	public Production 선택한날짜데이터가져오기(String day) {
+		
+		return productionRepository.findByDate(day);
+	}
+	
+	@Transactional
+	public void 선택할날짜데이터수정하기(int id, Production productResp) {
+		
+		Production product = productionRepository.findById(id)
+				.orElseThrow( () -> {
+					return new IllegalArgumentException("글 찾기 실패: 아이디를 찾을수없습니다");
+				});
+		
+		product.setProduct(productResp.getProduct());
+		product.setTarget(productResp.getTarget());
+		
+	}
+	@Transactional
+	public void 선택한날짜데이터삭제하기(int id) {
+		productionRepository.deleteById(id);
+	}
 }
