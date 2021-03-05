@@ -30,12 +30,11 @@ public class ProductionController {
 
 	@CrossOrigin
 	@PostMapping("/insert")
-	public ResponseEntity<?> register(@RequestBody Production dto) {
+	public Production register(@RequestBody Production dto) {
 		
-		System.out.println("production 값 : " +dto);
-		productionService.데이터입력하기(dto);
 		
-		return new ResponseEntity<>(dto ,HttpStatus.OK);
+		System.out.println("ddddd11:" +HttpStatus.ACCEPTED);
+		return productionService.데이터입력하기(dto);
 	}
 	
 	@CrossOrigin

@@ -21,4 +21,8 @@ public interface ProductionRepository extends JpaRepository<Production, Integer>
 	
 	@Query(value = "select * from product where date =?1", nativeQuery = true)
 	Production findByDate(String date);
+	
+	// 위에가 mySQL 방식  밑에는 PostgreSQL
+	@Query(value = "select * from product where date like %:month% order by date" , nativeQuery = true)
+	List<Production> SearchByProductionMonthData(@Param("month") String month);
 }

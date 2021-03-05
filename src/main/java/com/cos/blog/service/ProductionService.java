@@ -17,17 +17,18 @@ public class ProductionService {
 	ProductionRepository productionRepository;
 	
 	@Transactional
-	public void 데이터입력하기(Production dto) {
+	public Production 데이터입력하기(Production dto) {
 		
 		System.out.println("service 데이터 값 : " +dto  );
-		productionRepository.save(dto);
+		return productionRepository.save(dto);
 		
 	}
 	
 	@Transactional
 	public List<Production> 데이터가져오기(String month) {
 		
-		return productionRepository.searchByProductiondateLike(month);
+		return productionRepository.SearchByProductionMonthData(month);
+//		return productionRepository.searchByProductiondateLike(month);
 //		return productionRepository.findByProductionDateContaining(month);
 		
 	}
